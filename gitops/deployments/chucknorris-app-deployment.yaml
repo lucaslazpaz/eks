@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chucknorris-app
+  name: chucknorris-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chucknorris-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: chucknorris-app
+    spec:
+      containers:
+        - name: chucknorris-app
+          image: 448007292570.dkr.ecr.us-east-1.amazonaws.com/devops/production/chucknorris-app:latest
+          ports:
+            - containerPort: 80
+status: {}

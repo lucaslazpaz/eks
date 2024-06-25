@@ -102,3 +102,13 @@ variable "eks_cluster" {
   }
 
 }
+
+variable "ecr_repositories" {
+  type = object({
+    chucknorris_app = string
+  })
+
+  default = {
+    chucknorris_app = "devops/production/chucknorris-app"
+  }
+}
