@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: k8s-poc-eks-ingress
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: k8s-poc-eks-alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-0e41e6110b6ef38f1,subnet-0d74d9c70da057599
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:448007292570:certificate/885af502-7b79-42f9-ac1f-4a94acef4afa
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: chucknorris-app-service
+                port:
+                  number: 80

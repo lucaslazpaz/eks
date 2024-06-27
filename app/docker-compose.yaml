@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  app:
+    image: node-docker-app:latest
+    ports:
+      - '8080:80'
+    environment:
+      - PORT=80

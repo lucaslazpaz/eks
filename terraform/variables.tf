@@ -112,3 +112,19 @@ variable "ecr_repositories" {
     chucknorris_app = "devops/production/chucknorris-app"
   }
 }
+
+variable "acm_certificate" {
+  type = object({
+    domain_name = string
+    validation_method = string
+  })
+
+  default = {
+    domain_name = "l2ptech.com.br"
+    validation_method = "DNS"
+  }
+}
+variable "domain" {
+  type = string
+  default = "l2ptech.com.br"
+}

@@ -1,0 +1,4 @@
+resources:
+  - deployments/chucknorris-app-deployment.yaml
+  - services/chucknorris-app-service.yaml
+  - ingress.yaml
